@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="MyEndPoints_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/eDocsDN_Get_Directory_Info" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_CopyFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:CopyFile" />
+  </wsdl:message>
+  <wsdl:message name="IService1_CopyFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CopyFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Check_File_Exist_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check_File_Exist" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Check_File_Exist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Check_File_ExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_File_Information_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get_File_Information" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Get_File_Information_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Get_File_InformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Check_File_Is_Locked_InputMessage">
+    <wsdl:part name="parameters" element="tns:Check_File_Is_Locked" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Check_File_Is_Locked_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Check_File_Is_LockedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_File_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_File" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Delete_File_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Delete_FileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="CopyFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/CopyFile" message="tns:IService1_CopyFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/CopyFileResponse" message="tns:IService1_CopyFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Exist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Check_File_Exist" message="tns:IService1_Check_File_Exist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Check_File_ExistResponse" message="tns:IService1_Check_File_Exist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_File_Information">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Get_File_Information" message="tns:IService1_Get_File_Information_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Get_File_InformationResponse" message="tns:IService1_Get_File_Information_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Is_Locked">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Check_File_Is_Locked" message="tns:IService1_Check_File_Is_Locked_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Check_File_Is_LockedResponse" message="tns:IService1_Check_File_Is_Locked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_File">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Delete_File" message="tns:IService1_Delete_File_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/Delete_FileResponse" message="tns:IService1_Delete_File_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyEndPoints" type="tns:IService1">
+    <wsp:PolicyReference URI="#MyEndPoints_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CopyFile">
+      <soap12:operation soapAction="http://tempuri.org/IService1/CopyFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Exist">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Check_File_Exist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_File_Information">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Get_File_Information" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Is_Locked">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Check_File_Is_Locked" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_File">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Delete_File" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CopyFile">
+      <soap:operation soapAction="http://tempuri.org/IService1/CopyFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Exist">
+      <soap:operation soapAction="http://tempuri.org/IService1/Check_File_Exist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_File_Information">
+      <soap:operation soapAction="http://tempuri.org/IService1/Get_File_Information" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Is_Locked">
+      <soap:operation soapAction="http://tempuri.org/IService1/Check_File_Is_Locked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_File">
+      <soap:operation soapAction="http://tempuri.org/IService1/Delete_File" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IService1" type="tns:IService1">
+    <wsp:PolicyReference URI="#NetTcpBinding_IService1_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="CopyFile">
+      <soap12:operation soapAction="http://tempuri.org/IService1/CopyFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Exist">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Check_File_Exist" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_File_Information">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Get_File_Information" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_File_Is_Locked">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Check_File_Is_Locked" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_File">
+      <soap12:operation soapAction="http://tempuri.org/IService1/Delete_File" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="MyEndPoints" binding="tns:MyEndPoints">
+      <soap12:address location="net.tcp://localhost:53728/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:53728/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>ESPL-L-1088\Administrator</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:53729/Pune_FileServer" />
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IService1" binding="tns:NetTcpBinding_IService1">
+      <soap12:address location="net.tcp://localhost:53727/Pune_FileServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:53727/Pune_FileServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>ESPL-L-1088\Administrator</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

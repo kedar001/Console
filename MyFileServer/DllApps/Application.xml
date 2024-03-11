@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document>
+	<CurrentLocation name="Thane" procunconfigloc="Y" />
+	<AppLocation name="Thane" AppIp="192.168.1.210" />
+	<ApplicationVariable>
+		<Attachment_File_Size value="104869888" />
+		<KeyPath value="Educe_Product\DOEV8E-1D\DOEV8E-1D\Keys\" />
+		<RootDir value="Educe_Product\DOEV8E-1D\DOEV8E-1D\" />
+		<AppXmlPath value="Educe_Product\DOEV8E-1D\DOEV8E-1D\Code\DllApps\" />
+		<DllRootDir value="Educe_Product\DOEV8E-1D\DOEV8E-1D\DllApps\" />
+		<LogDir value="Educe_Product\DOEV8E-1D\DOEV8E-1D\DMSLog\" />
+		<Session_Variable_File_Path value="SessionVariables.txt" />
+		<Same_Login_Trx_Pwd value="True" />
+		<Log_Days_Limit value="7" />
+		<SessionDecuttime value="970" />
+		<Sys_Email_Id value="" />
+
+		<CompanyName value="Educe Solutions pvt. Ltd." />
+		<Codes_01 value="COMP,LOC,DPT,DOC,APP,CAT,SCAT,PRO,RCAU,IMPACT" />
+		<CodeDescription_01 value="COMPANY,LOCATION,DEPARTMENT,DOCTYPE,APPLICATION,CATEGORY,SUB-CATEGORY,PROCESS,ROOT CAUSE,IMPACT ASSESSMENT" />
+		<DMSQMSLink value="False"/>
+		<DMSQMSLinkUrl value="http://192.168.1.106/ccp_v1_1a/" />
+		<DocTypeCatagory value="DMS,CCP,CAPA,DEV" />
+		<SINGLE_DOCUMENT_FOR_SAME_ATTRIBUTES value="true" />
+		<Word value="docx" />
+		<Excel value="" />
+		<InProcessDocStatus value="Draft" />
+		<PublishDocStatus value="Effective" />
+		<ExpiredDocStatus value="Expired" />
+		<ObsoleteDocStatus value="Obsolete" />
+		<DraftApprovedStatus value="Draft Approved" />
+		<MainDomain value="192.168.1.10"/>
+		<ValidateAD value="No" />
+		<AppUrl value="http://192.168.2.34/DOEV8-1D/Login.aspx" />
+		<CommonAppPath value ="http://192.168.2.34/DOEV8-1D/" />
+		<IsBridgeExist value="False"/>
+		<BridgeAppPath value=""/>
+		<Label4 value=""/>
+		<Label5 value=""/>
+		<Label6 value=""/>
+		<DefaultRegion value=""/>
+		<DocExpiryMonth value="1188"/>
+		<Delete_Other_Location_SessionOfUser value="True"/>
+		<Update_comments value="False"/>
+		<Allow_Blank_Dates value="False" />
+		<ExcludeSecureView value="docx,ppt,xlsx,svg,xpt,pst,sql,gif" />
+		<IssuedDocStatus value="Issued" />
+		<Limit_Doc_Cache value="15" />
+		<Limit_Print_Queue value="0" />
+		<Allow_Publish_Document_Printing value="False" />
+		<Telerik_Viewer value="http://192.168.1.210/DMS_DOEV7-1C-FDC/pdf.js/web/viewer.html?file=/DMS_DOEV7-1C-FDC/"/>
+		<APIGATEWAYURL value="https://192.168.2.34:602/"  />
+	</ApplicationVariable>
+
+
+
+	<Location name="Thane" isfs="Y" issecfs="N" processotherloc="Y">
+		<LocalSetting>
+			<Selfip value="192.168.2.34" />
+			<VirtualDir value="http://localhost:12376/" />
+			<FileServer value="http://localhost:53727/" />
+
+			<DocServerView value="http://192.168.2.34/DOEV8-1D_View_WEBDAV/" />
+			<DocServer value="http://192.168.2.34/DOEV8-1D_WebDAV/" />
+
+			<VirtualSharedDir value="TempShared_V7-1C-FDC/" />
+			<VirtualTempDir value="Temp_Dir/" />
+			<TempShared value="\\192.168.2.34\TempShared_V8-1C-E2\" />
+			<Database value="MSSQL" />
+			<Databaseversion value="2005"/>
+			<RootDir value="\DOEV8E-1C-E2\"/>
+			<DbConn value="PROVIDER=SQLOLEDB;DATA SOURCE=192.168.1.210;UID=sa;PWD=Espl123&amp;;DATABASE=Doe_V7-1C_FDC" />
+			<MsidxsConn value="Provider=MSIDXS.1;Integrated Security;Data Source=System" />
+			<Us_Database value="PROVIDER=SQLOLEDB;DATA SOURCE=;UID=;PWD=;DATABASE=" />
+			<Eu_Database value="PROVIDER=SQLOLEDB;DATA SOURCE=;UID=;PWD=;DATABASE=" />
+			<AuditStatus value="True" />
+			<EmailStatus value="True" />
+			<DebugStatus value="True" />
+			<ErrorStatus value="True" />
+			<WarningStatus value="True" />
+			<FileLog value="True" />
+			<DatabaseLog value="True" />
+			<FileSystem 	value="0" />
+			<!-- FS 0:FileSystem  1:Database  	2:BOTH-->
+			<EncryptFile 	value="0" />
+			<!-- FE 0:False 1:True -->
+			<AllowEmbededImages value="1" />
+			<!-- FE 0:False 1:True -->
+		        <TimeOut value="60" />            <!--value is in Seconds -->
+
+		</LocalSetting>
+
+		<DefaultFs ip="192.168.1.210" sharedfolder="TempShared_V7-1C-FDC\" />
+	</Location>
+
+
+
+	<Location name="Ambernath" isfs="Y" issecfs="N" processotherloc="N">
+
+		<LocalSetting>
+
+			<Selfip value="192.168.1.204" />
+			<VirtualDir value="http://192.168.1.251/DMS_DOEV7-1C-FDC_DDSM/" />
+			<FileServer value="http://192.168.1.251/DMS_DOEV7-1C-FDC_DDSM-FileServer/" />
+			<VirtualSharedDir value="TempShared_DOEV7-1C-FDC_DDSM/" />
+			<VirtualTempDir value="Temp_Dir/" />
+			<TempShared value="\\192.168.1.251\TempShared_DOEV7-1C-FDC_DDSM\" />
+			<Database value="MSSQL" />
+			<Databaseversion value="2005" />
+			<RootDir value="DMS_DOEV7-1C-FDC_DDSM" />
+			<DbConn value="PROVIDER=SQLOLEDB;DATA SOURCE=espl-c-854;UID=sa;PWD=Espl123&amp;;DATABASE=Doe_V7-1C_FDC" />
+			<MsidxsConn value="Provider=MSIDXS.1;Integrated Security;Data Source=System" />
+			<Us_Database value="PROVIDER=SQLOLEDB;DATA SOURCE=;UID=;PWD=;DATABASE=" />
+			<Eu_Database value="PROVIDER=SQLOLEDB;DATA SOURCE=;UID=;PWD=;DATABASE=" />
+			<AuditStatus value="True" />
+			<EmailStatus value="True" />
+			<DebugStatus value="True" />
+			<ErrorStatus value="True" />
+			<WarningStatus value="True" />
+			<FileLog value="True" />
+			<DatabaseLog value="True" />
+			<FileSystem 	value="0" />
+			<!-- FS 0:FileSystem  1:Database  	2:BOTH-->
+			<EncryptFile 	value="0" />
+			<!-- FE 0:False 1:True -->
+			<AllowEmbededImages value="1" />
+			<!-- FE 0:False 1:True -->
+
+		</LocalSetting>
+
+		<DefaultFs ip="192.168.1.251" sharedfolder="TempShared_DOEV7-1C-FDC_DDSM\" />
+
+	</Location>
+
+
+
+	<Location name="Waluj" isfs="Y" issecfs="N" processotherloc="N">
+
+		<LocalSetting>
+
+			<Selfip value="192.168.1.104" />
+			<VirtualDir value="http://192.168.1.104/DMS_FDC_DDSM2-QC/" />
+			<FileServer value="http://192.168.1.104/DMS_FDC_DDSM2-QC-FileServer/"/>
+			<VirtualSharedDir value="TempShared_DMS_FDC_DDSM2-QC$/" />
+			<VirtualTempDir value="Temp_Dir/" />
+			<TempShared value="\\192.168.1.104\TempShared_DMS_FDC_DDSM2-QC$\" />
+			<Database value="MSSQL" />
+			<Databaseversion value="2005" />
+			<RootDir value="DMS_FDC_DDSM2-QC" />
+			<DbConn value="PROVIDER=SQLOLEDB;DATA SOURCE=192.168.1.104;UID=sa;PWD=Espl123&amp;;DATABASE=Doe_V8-1C-QC" />
+			<MsidxsConn value="Provider=MSIDXS.1;Integrated Security;Data Source=System" />
+			<Us_Database value="PROVIDER=SQLOLEDB;DATA SOURCE=;UID=;PWD=;DATABASE=" />
+			<Eu_Database value="PROVIDER=SQLOLEDB;DATA SOURCE=;UID=;PWD=;DATABASE=" />
+			<AuditStatus value="True" />
+			<EmailStatus value="True" />
+			<DebugStatus value="True" />
+			<ErrorStatus value="True" />
+			<WarningStatus value="True" />
+			<FileLog value="True" />
+			<DatabaseLog value="True" />
+			<FileSystem 	value="0" />
+			<!-- FS 0:FileSystem  1:Database  	2:BOTH-->
+			<EncryptFile 	value="0" />
+			<!-- FE 0:False 1:True -->
+			<AllowEmbededImages value="1" />
+			<!-- FE 0:False 1:True -->
+
+
+		</LocalSetting>
+
+		<DefaultFs ip="192.168.1.104" sharedfolder="TempShared_DMS_FDC_DDSM2-QC$\" />
+
+	</Location>
+
+
+
+	<AppDirectory>
+		<WorkingDoc value="Working\Doc\" />
+		<Preview value="Working\Preview\"/>
+		<WorkingHtm value="Working\Htm\" />
+		<DraftVersion value="Working\DraftVersion\"/>
+		<HistoryDoc value="History\Doc\" />
+		<HistoryHtm value="History\Htm\" />
+		<PublishDoc value="Publish\Doc\" />
+		<PublishHtm value="Publish\Htm\" />
+		<ChangeHistoryDoc value="ChangeHistory\Doc\" />
+		<ChangeHistoryHtm value="ChangeHistory\Htm\" />
+		<TemplateWord value="Template\Word\" />
+		<TemplateExcel value="Template\Excel\" />
+		<TemplateOther value="Template\Other\" />
+		<DcrFiles value="DCRFiles\" />
+		<PhysicalTempShared value="Code\TempShared_V8-1C-E2\" />
+		<TempDir value="Code\Temp_Dir\" />
+		<Migration value="Migration\" />
+		<DcrFiles value="DCRFiles\" />
+		<TempDistribution value="Temp_Xml_Distribution\" />
+		<HelpFile value="HelpFile\" />
+		<DataXML value="Code\DataXML\" />
+		<Download value="Code\DownloadFile\" />
+		<PrintTemplate value="PrintTemplate\" />
+		<Report value="Code\Report\"/>
+		<Query value="Query\"/>
+		<SupportingFiles value="SupportingFiles\"/>
+		<DraftTemplateVersion value="DraftTemplate\"/>
+		<Deleted_DCR_Files value="DeletedDCR\"/>
+		<Deleted value="Deleted\"/>
+		<PublishPdf 	value="Publish\Pdf\" />
+		<HistoryPdf 	value="History\Pdf\" />
+		<WorkingPdf 	value="Working\Pdf\" />
+		<ChangeHistoryHtmPdf value="ChangeHistory\pdf\" />
+
+
+	</AppDirectory>
+</document>
