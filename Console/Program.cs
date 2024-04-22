@@ -13,6 +13,7 @@ using System.Net.Security;
 using System.ServiceModel;
 using TestConsole.ServiceReference1;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace TestConsole
 {
@@ -24,31 +25,170 @@ namespace TestConsole
 
         public static void Main(string[] args)
         {
-            ClsVariable_Update objUpdate;
-            IUpdate_Variable IUp;
-            IGet_Variables IGet;
 
-            clsGetVariables objGetVariables = new clsGetVariables(new BackEnd_CL());
-            List<string> lst = objGetVariables.Get_Variable_For_Updation();
-            switch (iProcess)
-            {
-                case 0:
-                    objUpdate = new ClsVariable_Update(new Update_Using_OpenXml());
-                    objUpdate.Update_Variable(lst);
-                    break;
 
-                case 1:
-                    objUpdate = new ClsVariable_Update(new Update_Using_SuncFusion());
-                    objUpdate.Update_Variable(lst);
-                    break;
-                case 2:
-                    objUpdate = new ClsVariable_Update(new Update_Using_Word());
-                    objUpdate.Update_Variable(lst);
-                    break;
-            }
+
+
+            ///...bug fixes
+            ///...bug fixes1
+            Check_Docver("1.101", "NN.NN");
+
+
+
+
+
+
+
+            //ClsVariable_Update objUpdate;
+            //IUpdate_Variable IUp;
+            //IGet_Variables IGet;
+
+            //clsGetVariables objGetVariables = new clsGetVariables(new BackEnd_CL());
+            //List<string> lst = objGetVariables.Get_Variable_For_Updation();
+            //switch (iProcess)
+            //{
+            //    case 0:
+            //        objUpdate = new ClsVariable_Update(new Update_Using_OpenXml());
+            //        objUpdate.Update_Variable(lst);
+            //        break;
+
+            //    case 1:
+            //        objUpdate = new ClsVariable_Update(new Update_Using_SuncFusion());
+            //        objUpdate.Update_Variable(lst);
+            //        break;
+            //    case 2:
+            //        objUpdate = new ClsVariable_Update(new Update_Using_Word());
+            //        objUpdate.Update_Variable(lst);
+            //        break;
+            //}
             Console.ReadLine();
         }
+
+        private static bool Check_Docver(string szDocver, string szDocVer_MaskType)
+        {
+
+            string szLNum = "", szRNum = "";
+            string szMLNum = "", szMRNum = "";
+            string[] arrVal;
+            string[] arrMVal;
+            char[] chSplit = { '.' };
+            bool bReturn = true;
+
+            //int iVer = Convert.ToInt32(szDocver);
+            //if (iVer == 0)
+            //{
+            //    bReturn = false;
+            //    MsgError = "Migration Failed because Version should not be 0";
+            //}
+
+
+            arrVal = szDocver.Split(chSplit);
+            arrMVal = szDocVer_MaskType.Split(chSplit);
+
+            if (arrVal.Length > 1)
+            {
+                szLNum = arrVal[0];
+                szRNum = arrVal[1];
+            }
+            if (arrMVal.Length > 1)
+            {
+                szMLNum = arrMVal[0];
+                szMRNum = arrMVal[1];
+            }
+
+            if (szLNum.Equals("0"))
+            {
+                bReturn = false;
+                throw new Exception("Migration Failed because Numeric part in doc version is not an Valid value");
+            }
+
+            if (szDocVer_MaskType.ToUpper() == "NN.XX")
+            {
+                if (IsNumeric(szLNum) == false)
+                {
+                    bReturn = false;
+                    throw new Exception("Migration Failed because Numeric part in doc version is not an numeric value");
+                }
+                if (szLNum.Equals("00.00") == false)
+                {
+                    bReturn = false;
+                    throw new Exception("Migration Failed because Numeric part in doc version is not an numeric value");
+                }
+            }
+            else
+            {
+                if (arrVal.Length == 1)
+                {
+                    bReturn = false;
+                    throw new Exception("Migration Failed because Document version is not in correct format");
+                }
+                else if (IsNumeric(szLNum) == false || IsNumeric(szRNum) == false)
+                {
+                    bReturn = false;
+                    throw new Exception("Migration Failed because Document version is not numeric");
+                }
+
+                if (szDocVer_MaskType.Equals("N.N"))
+                {
+                    if (szRNum.Length != 1)
+                    {
+                        bReturn = false;
+                        throw new Exception("Migration Failed because Document version is not in correct format");
+                    }
+                }
+                else
+                {
+
+                    var regExp = "^[0-9]{1," + szMLNum.Length.ToString() + "}\\.[0-9]{" + szMRNum.Length.ToString() + "}$";
+                    Regex re = new Regex(regExp);
+                    if (!re.IsMatch(szDocver))
+                    {
+                        bReturn = false;
+                        throw new Exception("Migration Failed because Document version is not in correct format");
+                    }
+                }
+
+
+
+
+
+                //if (szLNum.Length != szMLNum.Length)
+                //{
+                //    if (Convert.ToInt32(szLNum) < 10)
+                //    { }
+                //    else
+                //    {
+                //        bReturn = false;
+                //        MsgError = "Migration Failed because Document version is not in correct format";
+                //    }
+                //}
+                //if (szRNum.Length != szMRNum.Length)
+                //{
+                //    bReturn = false;
+                //    MsgError = "Migration Failed because Document version is not in correct format";
+                //}
+            }
+
+            return bReturn;
+        }
+        private static bool IsNumeric(string szValue)
+        {
+            bool bMatch;
+            Match oMatch;
+            Regex isNumeric = new Regex(@"^\d+$");
+            oMatch = isNumeric.Match(szValue);
+            bMatch = oMatch.Success;
+
+            if (bMatch == true)
+                return true;
+            else
+                return false;
+        }
+
     }
+
+
+
 
     //public class Update_Variables
     //{
